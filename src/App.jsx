@@ -10,16 +10,14 @@ function getPreparedMovies(movies, query) {
     return movies;
   }
 
-  if (searchQuery) {
-    movies = movies.filter(movie => {
-      const title = movie.title.toLowerCase();
-      const description = movie.description.toLowerCase();
+  const filteredMovies = movies.filter(movie => {
+    const title = movie.title.toLowerCase();
+    const description = movie.description.toLowerCase();
 
-      return title.includes(searchQuery) || description.includes(searchQuery);
-    });
+    return title.includes(searchQuery) || description.includes(searchQuery);
+  });
 
-    return movies;
-  }
+  return filteredMovies;
 }
 
 export const App = () => {
